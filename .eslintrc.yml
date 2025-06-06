@@ -1,3 +1,6 @@
+parserOptions:
+  project: "./tsconfig.json"
+  tsconfigRootDir: __dirname
 extends:
   - standard-with-typescript
   - prettier
@@ -5,21 +8,9 @@ ignorePatterns:
   - node_modules
   - dist
 rules:
-  import/order:
-    - error
-    - alphabetize:
-        order: asc
-        caseInsensitive: false
-        orderImportKind: asc
-  '@typescript-eslint/consistent-type-definitions':
+  "@typescript-eslint/consistent-type-definitions":
     - error
     - type
-  '@typescript-eslint/strict-boolean-expressions': warn
-  '@typescript-eslint/explicit-function-return-type': off
-  '@typescript-eslint/restrict-template-expressions': off
-  '@typescript-eslint/triple-slash-reference': off
-  '@typescript-eslint/ban-types': off
-  jsx-a11y/anchor-is-valid: off
   curly:
     - error
     - all
