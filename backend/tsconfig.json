@@ -4,6 +4,7 @@
     "transpileOnly": true
   },
   "compilerOptions": {
+    "jsx": "react",
     "outDir": "./dist",
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
