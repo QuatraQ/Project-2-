@@ -4,7 +4,7 @@ export const Input = ({ name, label, formik }: { name: string; label: string; fo
   const value = formik.values[name]
   const error = formik.errors[name] as string | undefined
   const touched = formik.touched[name]
- 
+
   return (
     <div style={{ marginBottom: 10 }}>
       <label htmlFor={name}>{label}</label>

@@ -7,7 +7,7 @@ export const ViewIdeaPage = () => {
   const { ideaNick } = useParams() as { ideaNick: string }
 
   const { data, error, isLoading, isFetching, isError } = trpc.getIdea.useQuery({
-    ideaNick
+    ideaNick,
   })
 
   if (isLoading || isFetching) {
@@ -24,8 +24,6 @@ export const ViewIdeaPage = () => {
 
   return (
     <Segment title={data.idea.name} description={data.idea.description}>
-
-
       <div className={css.text} dangerouslySetInnerHTML={{ __html: data.idea.text }} />
     </Segment>
   )

@@ -1,7 +1,6 @@
 @import '../../styles/var';
 @import '../../styles/mixins';
 
-
 .ideas {
   .idea {
     padding: 20px;
@@ -12,9 +11,8 @@
       margin-top: 20px;
     }
 
-      .ideaLink {
-        @include link;
-      }
+    .ideaLink {
+      @include link;
     }
   }
-
+}

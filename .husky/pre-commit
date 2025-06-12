@@ -2,3 +2,5 @@
 . "$(dirname -- "$0")/_/husky.sh"
 pnpm types
 pnpm w stylecheck
+pnpm w prettify
+pnpm b prettify
