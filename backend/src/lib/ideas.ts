@@ -1,4 +1,4 @@
-import _ from "lodash";
+import _ from 'lodash'
 
 export const ideas = _.times(100, (i) => ({
   nick: `cool-idea-nick-${i}`,
