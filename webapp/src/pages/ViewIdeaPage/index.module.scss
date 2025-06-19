@@ -3,8 +3,12 @@
 
 .text {
   font-size: 14px;
-
   & > *:not(:first-child) {
     margin-top: 10px;
   }
+}
+
+.createdAt {
+  font-size: 12px;
+  margin-bottom: 10px;
 }
