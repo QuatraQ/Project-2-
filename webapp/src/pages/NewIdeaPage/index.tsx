@@ -1,4 +1,4 @@
-import { Segment } from '../../componets/segment'
+import { Segment } from '../../componets/Segment'
 import { Input } from '../../componets/Input'
 import { Textarea } from '../../componets/Textarea'
 import { useFormik } from 'formik'

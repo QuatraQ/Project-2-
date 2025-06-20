@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom'
 import { trpc } from '../../lib/trpc'
 import css from './index.module.scss'
-import { Segment } from '../../componets/segment'
-import { format }  from 'date-fns/format'
+import { Segment } from '../../componets/Segment'
+import { format } from 'date-fns/format'
 
 export const ViewIdeaPage = () => {
   const { ideaNick } = useParams() as { ideaNick: string }

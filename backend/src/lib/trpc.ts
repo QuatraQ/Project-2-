@@ -15,7 +15,7 @@ export const applyTrpcToExpressApp = async (expressApp: Express, appContext: App
       createContext: () => appContext,
     })
   )
-   expressApp.use(
+  expressApp.use(
     '/trpc-playground',
     await expressHandler({
       trpcApiEndpoint: '/trpc',
@@ -25,4 +25,5 @@ export const applyTrpcToExpressApp = async (expressApp: Express, appContext: App
         superjson: true,
       },
     })
-  )}
+  )
+}
