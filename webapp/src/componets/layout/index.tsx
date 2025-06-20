@@ -20,12 +20,12 @@ export const Layout = () => {
           </li>
           <li className={css.item}>
             <Link className={css.link} to={getSignUpRoute()}>
-              Sign Up 
+              Sign Up
             </Link>
           </li>
           <li className={css.item}>
             <Link className={css.link} to={getSignInRoute()}>
-              Sign In 
+              Sign In
             </Link>
           </li>
         </ul>

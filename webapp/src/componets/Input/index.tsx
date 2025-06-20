@@ -7,13 +7,13 @@ export const Input = ({
   label,
   formik,
   maxWidth,
-  type = 'text'
+  type = 'text',
 }: {
   name: string
   label: string
   formik: FormikProps<any>
   maxWidth?: number
-  type?: 'text' | 'password' 
+  type?: 'text' | 'password'
 }) => {
   const value = formik.values[name]
   const error = formik.errors[name] as string | undefined
