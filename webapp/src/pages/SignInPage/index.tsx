@@ -8,9 +8,13 @@ import { Input } from '../../componets/Input'
 import { Alert } from '../../componets/Alert'
 import { useFormik } from 'formik'
 import { Button } from '../../componets/Button'
+import { getAllIdeasRoute } from '../../lib/routes'
+import { useNavigate } from 'react-router-dom'
+import Cookies from 'js-cookie'
 
 export const SignInPage = () => {
-  const [successMessageVisible, setSuccessMessageVisible] = useState(false)
+  const navigate = useNavigate()
+  const trpcUtils = trpc.useContext()
   const [submittingError, setSubmittingError] = useState<string | null>(null)
   const signIn = trpc.signIn.useMutation()
   const formik = useFormik({
@@ -22,12 +26,10 @@ export const SignInPage = () => {
     onSubmit: async (values) => {
       try {
         setSubmittingError(null)
-        await signIn.mutateAsync(values)
-        formik.resetForm()
-        setSuccessMessageVisible(true)
-        setTimeout(() => {
-          setSuccessMessageVisible(false)
-        }, 3000)
+        const { token } = await signIn.mutateAsync(values)
+        Cookies.set('token', token, { expires: 99999 })
+        void trpcUtils.invalidate()
+        navigate(getAllIdeasRoute())
       } catch (err: any) {
         setSubmittingError(err.message)
       }
@@ -41,7 +43,6 @@ export const SignInPage = () => {
           <Input label="Password" name="password" type="password" formik={formik} />
           {!formik.isValid && !!formik.submitCount && <Alert color="red">Some fields are invalid</Alert>}
           {submittingError && <Alert color="red">{submittingError}</Alert>}
-          {successMessageVisible && <Alert color="green">Thanks for sign in!</Alert>}
           <Button loading={formik.isSubmitting}>Sign In</Button>
         </FormItems>
       </form>
