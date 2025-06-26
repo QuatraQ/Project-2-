@@ -15,8 +15,7 @@ const getCreateTrpcContext =
 
 type TrpcContext = inferAsyncReturnType<ReturnType<typeof getCreateTrpcContext>>
 
-export const trpc = initTRPC.context<TrpcContext>().create({
-})
+export const trpc = initTRPC.context<TrpcContext>().create({})
 export const applyTrpcToExpressApp = async (expressApp: Express, appContext: AppContext, trpcRouter: TrpcRouter) => {
   expressApp.use(
     '/trpc',

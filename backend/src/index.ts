@@ -4,7 +4,7 @@ import { createAppContext, type AppContext } from './lib/ctx'
 import { applyPassportToExpressApp } from './lib/passport'
 import { applyTrpcToExpressApp } from './lib/trpc'
 import { trpcRouter } from './router'
-import { env } from './lib/env'
+import { env } from 'process'
 
 void (async () => {
   let ctx: AppContext | null = null

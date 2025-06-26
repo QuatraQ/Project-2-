@@ -19,7 +19,7 @@ const queryClient = new QueryClient({
 const trpcClient = trpc.createClient({
   links: [
     httpBatchLink({
-      url: env.DATABASE_URL,
+      url: env.VITE_DATABASE_URL,
       headers: () => {
         const token = Cookies.get('token')
         return {

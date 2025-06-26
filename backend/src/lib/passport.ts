@@ -7,10 +7,9 @@ import { env } from 'process'
 export const applyPassportToExpressApp = (expressApp: Express, ctx: AppContext): void => {
   const passport = new Passport()
 
-
-if (!env.JWT_SECRET) {
-  throw new Error('JWT_SECRET is not defined in environment variables');
-}
+  if (!env.JWT_SECRET) {
+    throw new Error('JWT_SECRET is not defined in environment variables')
+  }
 
   passport.use(
     new JWTStrategy(
@@ -42,6 +41,9 @@ if (!env.JWT_SECRET) {
       next()
       return
     }
-    passport.authenticate('jwt', { session: false })(req, res, next)
-  })
+    passport.authenticate('jwt', { session: false }, (...args: any[]) => {
+      req.user = args[1] || undefined
+      next()
+    })(req, res, next)
+  })  
 }

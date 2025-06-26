@@ -12,12 +12,12 @@ export const signUpTrpcRoute = trpc.procedure.input(zSignUpTrpcInput).mutation(a
   if (exUser) {
     throw new Error('User with this nick already exists')
   }
-const user = await ctx.prisma.user.create({
+  const user = await ctx.prisma.user.create({
     data: {
       nick: input.nick,
       password: getPasswordHash(input.password),
     },
   })
-    const token = signJWT(user.id)
+  const token = signJWT(user.id)
   return { token }
 })
